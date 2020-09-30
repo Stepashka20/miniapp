@@ -42,6 +42,23 @@ class HomePanelBase extends React.Component {
             <Panel id={id}>
                 <PanelHeader>Examples</PanelHeader>
                 <Group>
+                <Div>
+                        <Button mode="secondary" size="l" stretched={true} onClick={() => {
+                             fetch(`https://api.github.com/users/petrgazarov`, {
+                                method: 'get',
+                                headers: {
+                                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                                }
+                            })
+                                .then((response) => response.json())
+                                .then((response) => {
+                                   console.log(response)
+                                })
+                                .catch((error) => {
+                                    console.log("error - "+error)
+                                })
+                        }}>Открыть модальное окно</Button>
+                    </Div>
                     <Div>
                         <Button mode="secondary" size="l" stretched={true} onClick={() => setPage('home', 'groups')}>Список моих
                             групп</Button>

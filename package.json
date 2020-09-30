@@ -16,7 +16,7 @@
   "devDependencies": {
     "cross-env": "^5.2.1",
     "react-hot-loader": "^4.12.19",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^3.4.3",
     "redux-devtools-extension": "^2.13.8"
   },
   "dependencies": {
