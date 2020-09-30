@@ -53,8 +53,26 @@ class HomePanelBase extends React.Component {
                         <Button mode="secondary" size="l" stretched={true} onClick={() => this.props.openModal("MODAL_PAGE_BOTS_LIST")}>Открыть
                             модальную страницу</Button>
                     </Div>
+                    <Div>
+                        <Button mode="secondary" size="l" stretched={true} onClick={() => this.props.openModal("MODAL_PAGE_BOTS_LIST")}>Открыть
+                            модальную страницу</Button>
+                    </Div>
                     {withoutEpic && <Div>
-                        <Button mode="secondary" size="l" stretched={true} onClick={() => setPage('modal', 'filters')}>Открыть модальное окно</Button>
+                        <Button mode="secondary" size="l" stretched={true} onClick={() => {
+                             fetch(`https://api.github.com/users/petrgazarov`, {
+                                method: 'get',
+                                headers: {
+                                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                                }
+                            })
+                                .then((response) => response.json())
+                                .then((response) => {
+                                   console.log(response)
+                                })
+                                .catch((error) => {
+                                    console.log("error - "+error)
+                                })
+                        }}>Открыть модальное окно</Button>
                     </Div>}
                     {this.state.showImg && <Div className="div-center">
                         <img src="https://vk.com/sticker/1-12676-256" alt="Стикер VK"/>
